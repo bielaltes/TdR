@@ -17,13 +17,13 @@ class MLP:
         self.S_d = []
         self.mode = bool
 
-
         entrenar_executar = input("Vols entrenar (1) o executar (2) el perceptro mutlicapa?: ")
         if entrenar_executar == "1":
             self.mode = True
             with open('training_data.txt', 'r') as training:
                 self.training_data = json.load(training)
             nova_creada = input("El MLP es nou (1) o ja l'havies entrenat abans (2)?: ")
+            
             if nova_creada == "1":
                 numero_capes = int(input("Selecciona el numero de capes: "))
                 for x in range(numero_capes):
@@ -47,6 +47,7 @@ class MLP:
                     self.sortides.append(z)
                 self.exeucio()
                 self.guardar()
+                
             elif nova_creada == "2":
                 with open('estructura_perceptro.txt', 'r') as estructura_perceptro:
                     estructura_completa = json.load(estructura_perceptro)
@@ -54,6 +55,7 @@ class MLP:
                     self.sortides = estructura_completa[1]
                 self.exeucio()
                 self.guardar()
+                
             else:
                 print("error")
 
@@ -69,9 +71,11 @@ class MLP:
 
         else:
             print("error")
+            
 
     def exeucio(self):
         nombre_bucles = 0
+        
         if self.mode == True:
             for y in range(int(input("Quants cops vols entrenar el bucle?: "))):
                 for x in range(int(len(self.training_data))):
@@ -99,9 +103,9 @@ class MLP:
             percentatge_acerts = ((acerts/(acerts+errors))* 100)
             print(percentatge_acerts)
 
-        pass
 
     def sortida(self): #executa el perceptro i retorna la sortida
+        
         for k in range(len(self.perceptro)-1):
             for i in range(len(self.sortides[k+1])):
                 sortida_neurona = 0
@@ -115,10 +119,10 @@ class MLP:
                 else:
                     sortida_neurona = (1/( 1 + numpy.exp(-sortida_neurona)))
                 self.sortides[k+1][i] = sortida_neurona
+                
         if self.mode == False:
             print(self.sortides[-1])
 
-        pass
 
     def retropropagacio(self): #un cop obtinguda la sortida i comparada amb el que s'havia esperat,
 
@@ -133,6 +137,7 @@ class MLP:
         for p in range(len(self.sortides)-2):
             delta_t = []
             sumatori_retropropagacio = 0
+            
             for k in range(len(self.sortides[-2-p])):
                 for j in range(len(self.sortides[-3-p])):
                     for i in range(len(self.sortides[-1-p])):
