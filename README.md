@@ -7,4 +7,6 @@ The PDF of the project can be found in the main directory. Each folder correspon
 * Final project, AI driving video games: Project using Tensorflow to create a bot that drives Assetto Corsa.
 * Latest advances around the world: Curiosities and latest news (2020)
 
-I would recommend watching the videos of the final result of the Assetto Corsa AI section.
+I would recommend watching the videos of the final result of the Assetto Corsa AI section:
+* [First model videos](https://github.com/bielaltes/TdR/blob/master/Projecte%20final:%20IA%20condueix%20en%20videojocs/Primer%20model/videos.md)
+* [Second model videos](https://github.com/bielaltes/TdR/blob/master/Projecte%20final:%20IA%20condueix%20en%20videojocs/Segon%20model/videos.md)
